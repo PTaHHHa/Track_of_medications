@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="get" action="{% url 'search_results' %}">
+        <label for="patient"> Введите данные пациента </label>
+        <div id="patient">
+            <input name="search_first_name" placeholder="Имя">
+            <input name="search_last_name" placeholder="Фамилия">
+        </div>
+        <button type="submit">Поиск</button>
+    </form>
+</body>
+</html>
