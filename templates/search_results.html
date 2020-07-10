@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Here you are</h1>
+    {% for q in object_list %}
+        <li>{{ q.first_name }}, {{ q.last_name }}</li>
+    {% endfor %}
 </body>
 </html>

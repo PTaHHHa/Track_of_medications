@@ -1,4 +1,6 @@
 from django.db import models
+# from django.contrib.postgres.fields import ArrayField
+from django_better_admin_arrayfield.models.fields import ArrayField
 
 
 # Create your models here.
@@ -18,14 +20,17 @@ class Patient(models.Model):
     middle_name = models.CharField(max_length=90, verbose_name='Отчество')
     birth_date = models.DateField(verbose_name='Дата рождения')
     privilege_type = models.CharField(max_length=90, choices=Privilege_type, default=0, verbose_name='Льгота')
-    medication = models.CharField(max_length=90, verbose_name='Препарат')
+    medication = ArrayField(models.CharField(max_length=90, blank=True, null=False))
     date_of_recipe = models.DateField(verbose_name='Дата выдачи рецепта')
+    medication.verbose_name = 'Препарат'
+    medication.blank = True
+    medication.null = True
 
     class Meta:
         verbose_name_plural = 'Льготники'
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name + ': ' + self.medication
+        return self.first_name + ' ' + self.last_name
 
 
 class Stats(models.Model):
