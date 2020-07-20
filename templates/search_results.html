@@ -5,8 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+{% if not object_list %}
+<h1>Такой фамилии нет в списке</h1>
+{% else %}
     {% for q in object_list %}
-        <li>{{ q.first_name }}, {{ q.last_name }}</li>
+        <h1>{{ q.first_name }} {{ q.last_name }} {{ q.middle_name }} {{ q.birth_date }}
+        </h1>
+        {% for meds in q.medication %}
+            {{ meds }}
+        {% endfor %}
+        <a href="{% url 'form' q.id%}">Edit</a>
     {% endfor %}
+{% endif %}
 </body>
 </html>

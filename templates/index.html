@@ -8,10 +8,11 @@
     <form method="get" action="{% url 'search_results' %}">
         <label for="patient"> Введите данные пациента </label>
         <div id="patient">
-            <input name="search_first_name" placeholder="Имя">
-            <input name="search_last_name" placeholder="Фамилия">
+            <input name="search_first_name" placeholder="Имя" required>
+            <input name="search_last_name" placeholder="Фамилия" required>
         </div>
         <button type="submit">Поиск</button>
     </form>
+<a href="{% url 'search_results' %}">Form</a>
 </body>
 </html>
