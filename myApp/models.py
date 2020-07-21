@@ -34,8 +34,8 @@ class Patient(models.Model):
 
 class Stats(models.Model):
     model_name = models.CharField(max_length=90, blank=False, null=True, verbose_name='Показатель')
-    type_1 = models.IntegerField(default=0, verbose_name='Ветеран', editable=True)
-    type_2 = models.IntegerField(default=0, verbose_name='Чернобыль', editable=False)
+    type_1 = models.IntegerField(default=0, verbose_name='Ветеран', editable=False)
+    type_2 = models.IntegerField(default=0, verbose_name='Чернобыль', editable=True)
     type_3 = models.IntegerField(default=0, verbose_name='Ребёнок-инвалид до 18 лет', editable=False)
     type_4 = models.IntegerField(default=0, verbose_name='Инвалид I - II группы', editable=False)
     type_5 = models.IntegerField(default=0, verbose_name='Инвалид III группы', editable=False)
@@ -48,17 +48,18 @@ class Stats(models.Model):
 
 
 def stats_first():
-    privileges = {'Ветеран': Stats.type_1, 'Чернобыль': Stats.type_2,
-                  'Ребёнок-инвалид до 18 лет': Stats.type_3, 'Инвалид I - II группы': Stats.type_4,
-                  'Инвалид III группы': Stats.type_5}
-
+    privilege_list = ['Ветеран', 'Чернобыль', 'Ребёнок-инвалид до 18 лет', 'Инвалид I - II группы',
+                      'Инвалид III группы']
     q = Patient.objects.all()
-    new_q = Stats.objects.filter(model_name='Первый показатель')
-    for k, v in privileges.items():
-        number = q.filter(privilege_type=k).count()
-        new_q.update(type_2=1)
+    number_1 = [q.filter(privilege_type=i).count() for i in privilege_list]
+    number_2 = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5']  # need to find the way to make this more
+                                                                                            # sophisticated
 
-        # print(k + ' : ' + str(number))
+    new_q = Stats.objects.filter(model_name='Первый показатель')[0]
+
+    for i in range(len(number_1)):
+        setattr(new_q, number_2[i], number_1[i])
+        new_q.save()
 
 
 stats_first()
