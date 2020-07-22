@@ -1,5 +1,6 @@
 from django.db import models
 from django_better_admin_arrayfield.models.fields import ArrayField
+from django.db.models.signals import post_save
 
 
 # Create your models here.
@@ -52,14 +53,33 @@ def stats_first():
                       'Инвалид III группы']
     q = Patient.objects.all()
     number_1 = [q.filter(privilege_type=i).count() for i in privilege_list]
-    number_2 = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5']  # need to find the way to make this more
-                                                                                            # sophisticated
+    type_list = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5']  # need to find the way to make this more
+    # sophisticated
 
-    new_q = Stats.objects.filter(model_name='Первый показатель')[0]
+    print('i am working')
+
+    # field_name2 = Patient.objects.values_list('medication')  Это к делу не относится
+    # rint(field_name2.all())                                  Это к делу не относится
+
+    field_name = Stats.objects.values_list('model_name')[1][0]
+    new_q = Stats.objects.filter(model_name=field_name)[0]
 
     for i in range(len(number_1)):
-        setattr(new_q, number_2[i], number_1[i])
+        setattr(new_q, type_list[i], number_1[i])
         new_q.save()
 
+
+# def stats_second():
+
+#
+# def update_account_signal(sender, created, **kwargs):
+#     if not created:
+#         try:
+#             stats_first()
+#         except IndexError:
+#             pass
+#
+#
+# post_save.connect(update_account_signal, sender=Patient)
 
 stats_first()
