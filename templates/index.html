@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/static/css/index.css" type="text/css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<header>
+    <div id="header">
+        <img src="/static/image/logo.png" alt="Логотип">
+        <p class="head_text">
+			УЗ "2-Я ЦЕНТРАЛЬНАЯ<br>
+			РАЙОННАЯ ПОЛИКЛИНИКА<br>
+			ФРУНЗЕНСКОГО РАЙОНА<br>
+			Г.МИНСКА"
+		</p>
+    </div>
+</header>
 <body>
-    <form method="get" action="{% url 'search_results' %}">
-        <label for="patient"> Введите данные пациента </label>
-        <div id="patient">
-            <input name="search_first_name" placeholder="Имя" required>
-            <input name="search_last_name" placeholder="Фамилия" required>
+<div class="main_page">
+        <div class="top_text">
+            <p class="form_label"> Введите данные пациента</p>
         </div>
-        <button type="submit">Поиск</button>
-    </form>
-<a href="{% url 'search_results' %}">Form</a>
+    <div class="search_form">
+            <form method="get" action="{% url 'search_results' %}">
+                <div class="first_last_name">
+                    <input name="search_first_name" placeholder="Имя" required>
+                    <input name="search_last_name" placeholder="Фамилия" required>
+                </div>
+                <div class="submit_button">
+                    <button type="submit">Поиск</button>
+                    </div>
+            </form>
+        </div>
+</div>
 </body>
 </html>

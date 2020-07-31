@@ -70,16 +70,14 @@ def stats_first():
 
 
 # def stats_second():
+# pass
 
-#
-# def update_account_signal(sender, created, **kwargs):
-#     if not created:
-#         try:
-#             stats_first()
-#         except IndexError:
-#             pass
-#
-#
-# post_save.connect(update_account_signal, sender=Patient)
+def update_account_signal(sender, created, **kwargs):
+    if not created:
+        try:
+            stats_first()
+        except IndexError:
+            pass
 
-stats_first()
+
+post_save.connect(update_account_signal, sender=Patient)
