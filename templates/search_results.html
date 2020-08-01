@@ -1,21 +1,60 @@
+{% extends 'index.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% block links %}
+    <link rel="stylesheet" type="text/css" href="/static/css/search_results.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <title>Title</title>
+    {% endblock %}
 </head>
 <body>
+{% block body %}
 {% if not object_list %}
-<h1>Такой фамилии нет в списке</h1>
+    <div class="error_message">
+        <p>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </p>
+    <button type="button" class="error_button">
+        <a href="{% url 'home' %}">Назад</a>
+    </button>
+    </div>
 {% else %}
-    {% for q in object_list %}
-        <h1>{{ q.first_name }} {{ q.last_name }} {{ q.middle_name }} {{ q.birth_date }}
-        </h1>
-        {% for meds in q.medication %}
-            {{ meds }}
-        {% endfor %}
-        <a href="{% url 'form' q.id%}">Edit</a>
-    {% endfor %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Фамилия Имя Отчество</th>
+                <th scope="col">Дата рождения</th>
+                <th scope="col">Группа инвалидности</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for q in object_list %}
+                <tr class="row_hover">
+                    <td>{{ q.last_name }} {{ q.first_name}} {{ q.middle_name }}</td>
+                    <td>{{ q.birth_date }}</td>
+                    <td>{{ q.privilege_type }}</td>
+                    <td><a href="{% url 'form' q.id%}">Редактировать</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="error_message">
+    <br>
+    <br>
+    <button type="button" class="error_button" id="success">
+        <a href="{% url 'home' %}">Вернуться к поиску</a>
+    </button>
+    </div>
 {% endif %}
+{% endblock %}
 </body>
 </html>

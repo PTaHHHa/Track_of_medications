@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/static/css/index.css" type="text/css">
+    {% block links %}
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    {% endblock %}
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <header>
-    <div id="header">
+    <div class="header">
         <img src="/static/image/logo.png" alt="Логотип">
         <p class="head_text">
+            <a class="head_link" href="https://2crp.by/">
 			УЗ "2-Я ЦЕНТРАЛЬНАЯ<br>
 			РАЙОННАЯ ПОЛИКЛИНИКА<br>
 			ФРУНЗЕНСКОГО РАЙОНА<br>
 			Г.МИНСКА"
+            </a>
 		</p>
     </div>
 </header>
 <body>
+{% block body %}
 <div class="main_page">
         <div class="top_text">
             <p class="form_label"> Введите данные пациента</p>
@@ -33,5 +38,6 @@
             </form>
         </div>
 </div>
+{% endblock %}
 </body>
 </html>

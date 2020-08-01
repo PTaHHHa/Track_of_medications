@@ -12,6 +12,10 @@ class UpdateForm(forms.ModelForm):
     class Meta:
         model = Patient
         fields = ('first_name', 'last_name', 'medication')
+        widgets = {
+            'first_name': forms.TextInput(attrs={'readonly': 'readonly', 'required': ''}),
+            'last_name': forms.TextInput(attrs={'readonly': 'readonly', 'required': ''})
+        }
 
 
 class StatsModelAdmin(admin.ModelAdmin):
