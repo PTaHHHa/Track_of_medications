@@ -1,0 +1,48 @@
+div.error_message{
+    position: absolute;
+    top: 290px;
+    left: 700px;
+    color: black;
+    font-size: 45px;
+    font-family: "Open Sans", sans-serif;
+    width: 480px;
+    height: 1.5em;
+}
+
+div.error_message p {
+    color: black;
+    font-size: 45px;
+    font-family: "Open Sans", sans-serif;
+}
+
+button.error_button{
+    border-radius: 18px;
+    position: relative;
+    font-size: 50px;
+    top: 170px;
+    left: 150px;
+}
+
+button.error_button a{
+    text-decoration: none;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+
+div.table-responsive{
+    height: 10em;
+    position: absolute;
+    background-color: white;
+    top: 290px;
+    width: 88%;
+    left: 80px;
+}
+
+tr.row_hover:hover{
+    background-color: yellow;
+}
+
+button#success{
+    left: -1px;
+    font-size: 48px;
+}

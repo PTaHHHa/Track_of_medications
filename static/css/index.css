@@ -1,0 +1,104 @@
+html{
+     background-image: url("/static/image/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1920px 1080px;
+}
+body{
+    max-width: 800px;
+}
+div.main_page{
+    position: relative;
+    height: 100%;
+    top: 150px;
+    left: 66%;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+div.search_form, div.top_text, div.submit_button, div.first_last_name, div.header{
+    height: 10em;
+    max-width: 800px;
+    position: relative
+}
+
+div.search_form form{
+    /*background: yellow;*/
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    margin: 0 -50% 0 0;
+    transform: translate(-50%, -50%);
+    width: 800px;
+}
+
+div.top_text p{
+    /*background: linear-gradient(crimson, aqua);*/
+    position: absolute;
+    top: 50px;
+    left: 15%;
+    font-size: 45px;
+    font-family: "Open Sans", sans-serif;
+}
+
+div.top_text{
+    top: 80px;
+    height: 180px;
+    /*left: 1%;*/
+    /*width: 320px;*/
+}
+
+
+div.submit_button button{
+    position: absolute;
+    left: 37%;
+    margin-top: 10%;
+    font-size: 45px;
+    border-radius: 18px;
+    font-family: "Open Sans", sans-serif;
+    width: 160px;
+    border-bottom-width: 4px;
+    cursor: pointer;
+}
+
+div.first_last_name input{
+    position: inherit;
+    top: 45%;
+    margin: 10px;
+    font-size: 30px;
+    border-radius: 20px;
+    border-bottom-width: 8px;
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    left: 20px;
+}
+
+div.header{
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: 3%;
+}
+
+div.header p.head_text{
+    text-decoration: none;
+    position: relative;
+    top: -55%;
+    left:100px;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    line-height: 1.3em;
+    /*color: black;*/
+}
+
+div.header img {
+    position: relative;
+    top: 25px;
+
+}
+
+a.head_link{
+    color: black;
+    text-decoration: none;
+}

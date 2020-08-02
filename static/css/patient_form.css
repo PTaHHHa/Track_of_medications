@@ -1,0 +1,20 @@
+form#contact_form{
+    position: relative;
+    top: 120px;
+    left: 70%;
+    font-size: 26px;
+}
+
+body{
+    background-color: transparent;
+}
+
+div#medicine{
+    position: relative;
+    left: 250px;
+    top: -350px;
+}
+
+/*div.input-group{*/
+/*    font-size: 35px;*/
+/*}*/

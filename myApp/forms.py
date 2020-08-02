@@ -11,10 +11,15 @@ class SearchForm(forms.ModelForm):
 class UpdateForm(forms.ModelForm):
     class Meta:
         model = Patient
-        fields = ('first_name', 'last_name', 'medication')
+        fields = ('last_name', 'first_name', 'middle_name', 'birth_date', 'medication')
         widgets = {
-            'first_name': forms.TextInput(attrs={'readonly': 'readonly', 'required': ''}),
-            'last_name': forms.TextInput(attrs={'readonly': 'readonly', 'required': ''})
+            'first_name': forms.TextInput(attrs={'readonly': 'readonly'}),
+            'last_name': forms.TextInput(attrs={'readonly': 'readonly'}),
+            'middle_name': forms.TextInput(attrs={'readonly': 'readonly'}),
+            'birth_date': forms.DateInput(format='%d.%m.%Y', attrs={'readonly': 'readonly'}),
+        }
+        labels = {
+            'medication': 'medication',
         }
 
 

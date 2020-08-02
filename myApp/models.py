@@ -2,7 +2,6 @@ from django.db import models
 from django_better_admin_arrayfield.models.fields import ArrayField
 from django.db.models.signals import post_save
 
-
 # Create your models here.
 
 
@@ -22,7 +21,7 @@ class Patient(models.Model):
     privilege_type = models.CharField(max_length=90, choices=Privilege_type, default=0, verbose_name='Льгота')
     medication = ArrayField(models.CharField(max_length=90, blank=True, null=False), size=6)
     date_of_recipe = models.DateField(verbose_name='Дата выдачи рецепта')
-    medication.verbose_name = 'Препарат'
+    medication.verbose_name = 'Препараты'
     medication.blank = True
     medication.null = True
 
