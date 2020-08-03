@@ -6,7 +6,7 @@ form#contact_form{
 }
 
 body{
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 div#medicine{
@@ -15,6 +15,19 @@ div#medicine{
     top: -350px;
 }
 
-/*div.input-group{*/
-/*    font-size: 35px;*/
-/*}*/
+div.patient_form{
+    position: relative;
+    left: 120px;
+    top: 30px;
+}
+
+div.btn{
+    position: relative;
+    top: -120px;
+    /*left: 80px;*/
+}
+
+div.btn button{
+    font-size: 24px;
+    border-radius: 12px;
+}
