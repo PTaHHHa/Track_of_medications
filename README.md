@@ -1,4 +1,4 @@
-# Track_of_medications
+# Track of medications
 
 This web-app was my task at working practice.
 
