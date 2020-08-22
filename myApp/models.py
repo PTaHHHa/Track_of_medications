@@ -2,8 +2,6 @@ from django.db import models
 from django_better_admin_arrayfield.models.fields import ArrayField
 from django.db.models.signals import post_save
 
-# Create your models here.
-
 
 class Patient(models.Model):
     Privilege_type = (
@@ -26,6 +24,7 @@ class Patient(models.Model):
     medication.null = True
 
     class Meta:
+        verbose_name = 'Льготника'
         verbose_name_plural = 'Льготники'
 
     def __str__(self):
@@ -42,6 +41,7 @@ class Stats(models.Model):
 
     class Meta:
         verbose_name_plural = 'Статистика'
+        verbose_name = 'Статистику'
 
     def __str__(self):
         return self.model_name
@@ -52,13 +52,7 @@ def stats_first():
                       'Инвалид III группы']
     q = Patient.objects.all()
     number_1 = [q.filter(privilege_type=i).count() for i in privilege_list]
-    type_list = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5']  # need to find the way to make this more
-    # sophisticated
-
-    print('i am working')
-
-    # field_name2 = Patient.objects.values_list('medication')  Это к делу не относится
-    # rint(field_name2.all())                                  Это к делу не относится
+    type_list = ['type_1', 'type_2', 'type_3', 'type_4', 'type_5']
 
     field_name = Stats.objects.values_list('model_name')[1][0]
     new_q = Stats.objects.filter(model_name=field_name)[0]
@@ -67,9 +61,6 @@ def stats_first():
         setattr(new_q, type_list[i], number_1[i])
         new_q.save()
 
-
-# def stats_second():
-# pass
 
 def update_account_signal(sender, created, **kwargs):
     if not created:

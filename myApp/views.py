@@ -2,9 +2,8 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, TemplateView, UpdateView
 from django.db.models import Q
-from .models import Patient, Stats
+from .models import Patient
 from .forms import UpdateForm
-# from django.contrib.messages.views import messages
 
 
 class HomeView(TemplateView):
