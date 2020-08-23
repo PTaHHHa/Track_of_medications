@@ -5,6 +5,12 @@ form#contact_form{
     font-size: 26px;
 }
 
+input{
+    font-family: "Open Sans", sans-serif !important;
+    font-style: italic;
+    color: black;
+}
+
 body{
     background-color: transparent !important;
 }
@@ -13,6 +19,18 @@ div#medicine{
     position: relative;
     left: 250px;
     top: -350px;
+    border-radius: .25rem;
+}
+
+div#medicine label{
+    position: relative;
+    top: -158px;
+    right: -37px;
+}
+
+div#medicine input{
+    border: transparent;
+    border-radius: .25rem;
 }
 
 div.patient_form{
@@ -30,4 +48,43 @@ div.btn{
 div.btn button{
     font-size: 24px;
     border-radius: 12px;
+}
+
+.form-control{
+        font-family: "Open Sans", sans-serif !important;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 25px !important;
+    color: black !important;
+}
+
+ul{
+        list-style-type: none;
+}
+
+div.dynamic-array-widget{
+    position: relative;
+    top: -96px;
+    height: 60px;
+    left: 20px;
+}
+
+div.dynamic-array-widget button{
+    background: transparent;
+    color: transparent;
+    border: transparent;
+    cursor: initial !important;
+}
+
+div.dynamic-array-widget button:focus{
+    outline: transparent;
+}
+li input{
+    height: calc(1.5em + .75rem + 2px);
+}
+
+div.btn{
+    top: -60px;
+    position: relative;
+    font-family: "Open Sans", sans-serif !important;
 }
